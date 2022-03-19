@@ -10,8 +10,11 @@ class DIEM
     void nhap();
     void xuat();
     void doidiem();
-    void khoangcachhaidiem();
+    double khoangcachhaidiem(DIEM);
     void kiemtratrung();
+    void doixungquaO();
+    double chuvi(DIEM  , DIEM );
+    double dientich(DIEM, DIEM);
 };
 DIEM :: DIEM(double x , double y)
 {
@@ -42,13 +45,9 @@ void DIEM :: doidiem()
     y+=temp1;
     cout<<"Diem sau khi doi la : "; this->xuat(); 
 }
-void DIEM :: khoangcachhaidiem()
+double DIEM :: khoangcachhaidiem(DIEM a)
 {
-    DIEM a;
-    a.nhap();
-    cout<<"Ban yeu cau tinh khoang cach giua hai diem la : ";
-    this->xuat(); a.xuat();
-    cout<<"Khoang cach giua 2 diem tren la : "<<fixed<<setprecision(3)<<sqrt(pow(this->x-a.x,2)+pow(this->y-a.y,2));
+    return sqrt(pow(this->x-a.x,2)+pow(this->y-a.y,2));
 }
 void DIEM :: kiemtratrung()
 {
@@ -67,14 +66,125 @@ void DIEM :: kiemtratrung()
         this->xuat();
     }
 }
+void DIEM :: doixungquaO()
+{
+    if (x==0 && y!=0) {
+        y=-y;
+        x=0;
+    }
+    else if (y==0 && x!=0)
+    {
+        y=0;
+        x=-x;
+    }
+    else if (x==0 && y==0 )
+    {
+        x=y=0;
+    }
+    else 
+    {
+        x=-x;
+        y=-y;
+    }
+}
+double DIEM ::chuvi(DIEM a, DIEM b)
+{
+    double x = this->khoangcachhaidiem(a);
+    double y = a.khoangcachhaidiem(b);
+    double z = this->khoangcachhaidiem(b);
+    return x+y+z;
+}
+double DIEM ::dientich(DIEM a , DIEM b)
+{
+    double x = this->khoangcachhaidiem(a);
+    double y = a.khoangcachhaidiem(b);
+    double z = this->khoangcachhaidiem(b);
+    double t = chuvi(a, b)/2;
+    return sqrt(t*(t-x)*(t-y)*(t-z));
+}
 int main()
 {
     DIEM a;
-    a.nhap();
-    a.xuat();
-    //a.doidiem();
-    //a.khoangcachhaidiem();
-    a.kiemtratrung();
-    system("pause");
-    system("cls");
+    while(1)
+    {
+        cout<<"Hay nhap yeu cau ban muon\n";
+        cout<<"1. Khoi tao diem va xuat diem\n";
+        cout<<"2. Di chuyen diem\n";
+        cout<<"3. Kiem 2 diem co trung nhau khong\n";
+        cout<<"4. Tinh khoang cach 2 diem\n";
+        cout<<"5. Lay doi xung qua O\n";
+        cout<<"6. Tinh chu vi tam giac\n";
+        cout<<"7. Tinh dien tich tam giac\n";
+        cout<<"0. Thoat chuong trinh\n";
+        cout<<"Lua chon cua ban la : ";
+        int lc; cin>>lc;
+        system("cls");
+        if (lc==1)
+        {
+            a.nhap();
+            a.xuat();
+            system("pause");
+            system("cls");
+        }
+        else if (lc==2)
+        {
+            a.nhap();
+            a.doidiem();
+            system("pause");
+            system("cls");
+        }
+        else if (lc==3)
+        {
+            a.nhap();
+            a.kiemtratrung();
+            system("pause");
+            system("cls");
+        }
+        else if (lc==4)
+        {
+        a.nhap();
+        DIEM b;
+        b.nhap();
+        cout<<"Ban yeu cau tinh khoang cach giua hai diem ";
+        a.xuat(); b.xuat();
+        cout<<"Khoang cach giua 2 diem tren la : "<<fixed<<setprecision(3)<<a.khoangcachhaidiem(b);
+        system("pause");
+            system("cls");
+        }
+        else if (lc==5)
+        {
+            a.nhap();
+            a.doixungquaO();
+            a.xuat();
+            system("pause");
+            system("cls");
+        }
+        else if (lc==6)
+        {
+            a.nhap();
+            DIEM c,b;
+            c.nhap();
+            b.nhap();
+            cout<<"Chu vi la : "<<fixed<<setprecision(3)<<a.chuvi(b,c);
+            system("pause");
+            system("cls");
+        }
+        else if (lc==7)
+        {
+            a.nhap();
+            DIEM c,b;
+            c.nhap();
+            b.nhap();
+            cout<<"Chu vi la : "<<fixed<<setprecision(3)<<a.dientich(b,c);
+            system("pause");
+            system("cls");
+        }
+        else 
+        {
+            cout<<"Dung chuong trinh!\n";
+            system("pause");
+            system("cls");
+            return 0;
+        }
+    }
 }

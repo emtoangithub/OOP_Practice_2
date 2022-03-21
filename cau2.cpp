@@ -61,7 +61,7 @@ void sophuc :: dinhdangxuat( int dang , sophuc a, sophuc b )
     }
 }
 sophuc :: sophuc(double x, double y)
-: ao(x), thuc(y)
+: thuc(x), ao(y)
 {}
 void sophuc :: nhap()
 {
@@ -114,8 +114,8 @@ int main()
         cout<<"Hay chon yeu cau cua ban\n";
         cout<<"1. Hai so phuc khong khoi tao ( a = 0 , b = 0 )\n";
         cout<<"2. Hai so phuc a khoi tao b tuy y ( a = 0 , b tuy y )\n";
-        cout<<"3. Hai so phuc a tuy y b khoi tao ( a tuy y , b khoi tao )\n";
-        cout<<"4. Hai so phuc a b tuy ( a tuy y, b tuy y )\n";
+        cout<<"3. Hai so phuc a tuy y b khoi tao ( a tuy y , b = 0 )\n";
+        cout<<"4. Hai so phuc a b tuy y ( a tuy y, b tuy y )\n";
         cout<<"5. Hai so phuc nhap tu ban phim\n";
         cout<<"0. Thoat chuong trinh\n";
         cout<<"Lua chon cua ban la : ";
@@ -148,8 +148,85 @@ int main()
             int n; cin>>n;
             for (int i = 1 ; i<= n ;i++)
             {
+                xoamanhinh();
                 cout<<"Lan thu "<<i<<endl;
+                sophuc a(0,  0 + rand() % (100 - 0 + 1)),b(0,  0 + rand() % (100 - 0 + 1)),c;
+                c = a.cong(b);
+                c.dinhdangxuat(1, a, b );
+                c= a.tru(b);
+                c.dinhdangxuat(2, a, b );
+                c = a.nhan(b);
+                c.dinhdangxuat(3, a, b );
+                c= a.chia(b);
+                c.dinhdangxuat(4, a, b );
             } 
+        }
+        else if (lc==3)
+        {
+            cout<<"So lan phep tinh ban muon la : ";
+            int n; cin>>n;
+            for (int i = 1 ; i<= n ;i++)
+            {
+                xoamanhinh();
+                cout<<"Lan thu "<<i<<endl;
+                sophuc a(0 + rand() % (100 - 0 + 1),  0),b( 0 + rand() % (100 - 0 + 1) , 0),c;
+                c = a.cong(b);
+                c.dinhdangxuat(1, a, b );
+                c= a.tru(b);
+                c.dinhdangxuat(2, a, b );
+                c = a.nhan(b);
+                c.dinhdangxuat(3, a, b );
+                c= a.chia(b);
+                c.dinhdangxuat(4, a, b );
+            } 
+        }
+        else if (lc == 4)
+        {
+             cout<<"So lan phep tinh ban muon la : ";
+            int n; cin>>n;
+            for (int i = 1 ; i<= n ;i++)
+            {
+                xoamanhinh();
+                cout<<"Lan thu "<<i<<endl;
+                sophuc a(0 + rand() % (100 - 0 + 1),  0 + rand() % (100 - 0 + 1)),b( 0 + rand() % (100 - 0 + 1) , 0 + rand() % (100 - 0 + 1)),c;
+                c = a.cong(b);
+                c.dinhdangxuat(1, a, b );
+                c= a.tru(b);
+                c.dinhdangxuat(2, a, b );
+                c = a.nhan(b);
+                c.dinhdangxuat(3, a, b );
+                c= a.chia(b);
+                c.dinhdangxuat(4, a, b );
+            } 
+        }
+        else if (lc == 5)
+        {
+            cout<<"So lan phep tinh ban muon la : ";
+            int n; cin>>n;
+            sophuc a[n];
+            sophuc b[n];
+            for (int i = 1 ; i<= n; i++)
+            {
+                xoamanhinh();
+                cout<<"Lan thu "<<i<<endl;
+                sophuc c;
+                a[i].nhap();
+                b[i].nhap();
+                c = a[i].cong(b[i]);
+                c.dinhdangxuat(1, a[i], b[i]);
+                c = a[i].tru(b[i]);
+                c.dinhdangxuat(2, a[i], b[i]);
+                c = a[i].nhan(b[i]);
+                c.dinhdangxuat(3, a[i], b[i]);
+                c = a[i].chia(b[i]);
+                c.dinhdangxuat(4, a[i], b[i]);
+            }
+        }
+        else 
+        {
+            cout<<"Dung chuong trinh!\n";
+            dungroixoa();
+            return 0;
         }
     }
 }

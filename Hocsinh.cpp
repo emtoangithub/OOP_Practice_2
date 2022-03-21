@@ -8,7 +8,7 @@ class hocsinh
     double van, toan;
     public:
     hocsinh(string = "NULL", double = 0 , double = 0);
-    void xuat();
+    void xuat(int);
     void nhap();
     double diemtb();
     int xeploai();
@@ -26,7 +26,7 @@ void hocsinh :: nhap()
     cout<<"Diem van : ";
     cin>>this->van;
 }
-void hocsinh :: xuat()
+void hocsinh :: xuat(int n )
 {
     cout<<"\n***********************************\n";
     cout<<"Ho va ten : ";
@@ -35,6 +35,13 @@ void hocsinh :: xuat()
     cout<<"Diem toan : "<<this->toan;
     cout<<endl;
     cout<<"Diem van : "<<this->van;
+    cout<<endl;
+    cout<<"Diem trung binh : "<<this->diemtb();
+    cout<<endl;
+    cout<<"Xep loai : "; 
+    if (n==1 ) cout<<"Gioi";
+    else if (n==2) cout<<"Kha";
+    else if (n==3) cout<<"Trung binh";
     cout<<"\n***********************************\n";
 }
 double hocsinh :: diemtb()
@@ -48,7 +55,32 @@ int hocsinh :: xeploai()
     else if (a >= 5 && a < 9 ) return 2;
     else return 3; 
 }
+void xoa()
+{
+    system("cls");
+}
+void dungroixoa()
+{
+    cout<<endl;
+    system("pause");
+    xoa();
+}
 int main()
 {
-    
+    xoa();
+    cout<<"Nhap so hoc sinh : ";
+    int n; cin>>n;
+    hocsinh a[n];
+    xoa();    
+    for (int i=0 ; i<n;i++)
+    {
+        a[i].nhap();
+        xoa();
+    }
+    xoa();
+    for (int i = 0 ;i < n ; i++)
+    {
+        a[i].xuat(a[i].xeploai());
+    }
+    return 0;   
 }

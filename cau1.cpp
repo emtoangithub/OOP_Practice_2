@@ -161,7 +161,16 @@ phanso phanso :: chia(phanso a)
 }
 int main()
 {
-    phanso a, b, c;
+    srand(time(NULL));
+    phanso c;
+    cout<<"Hay chon yeu cau\n";
+    cout<<"1. Nhap gia tri tu ban phim\n";
+    cout<<"2. Gia tri khoi tao ngau nhien\n";
+    cout<<"Lua chon cua ban la : ";
+    int lc; cin>>lc;
+    if (lc==1)
+    {
+    phanso a,b;
     a.nhap();
     b.nhap();
     cout<<"Hai phan so vua nhap la : ";
@@ -191,4 +200,37 @@ int main()
     cout<<endl;
     system("pause");
     return 0;
+    }
+    else if (lc == 2)
+    {
+    phanso a( 0 + rand() % (100 - 0 + 1),  0 + rand() % (100 - 0 + 1)), b( 0 + rand() % (100 - 0 + 1),  0 + rand() % (100 - 0 + 1));
+    cout<<endl;
+    cout<<"Hai phan so vua khoi tao ngau nhien la : ";
+    a.xuat(); 
+    cout<<" va ";
+    b.xuat();
+    cout<<endl;
+    cout<<"Tong hai phan so la : ";
+    c = a.cong(b);
+    c.rutgon();
+    c.xuat();
+    cout<<endl;
+    c = a.tru(b);
+    c.rutgon();
+    cout<<"Hieu hai phan so la : ";
+    c.xuat();
+    cout<<endl;
+    c = a.nhan(b);
+    c.rutgon();
+    cout<<"Tich hai phan so la : ";
+    c.xuat();
+    cout<<endl;
+    c = a.chia(b);
+    c.rutgon();
+    cout<<"Thuong hai phan so la : ";
+    c.xuat();
+    cout<<endl;
+    system("pause");
+    return 0;
+    }
 }

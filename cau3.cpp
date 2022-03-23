@@ -59,18 +59,18 @@ void in(const danhsach &l)
     while (a!=NULL)
     {
         cout<<"\n*****************************\n";
-        cout<<"Ten : ";
-        cout<<a->data.ten;
-        cout<<"\nID : ";
-        cout<<a->data.ma;
-        cout<<"\nNgay sinh : ";
-        cout<<a->data.ns;
-        cout<<"\nDiem toan : ";
-        cout<<a->data.toan;
-        cout<<"\nDiem van : ";
-        cout<<a->data.van;
-        cout<<"\nDiem anh : ";
-        cout<<a->data.anh;
+        cout<<setw(12)<<"Ten : ";
+        cout<<setw(8)<<a->data.ten;
+        cout<<setw(12)<<"\nID : ";
+        cout<<setw(8)<<a->data.ma;
+        cout<<setw(12)<<"\nNgay sinh : ";
+        cout<<setw(8)<<a->data.ns;
+        cout<<setw(12)<<"\nDiem toan : ";
+        cout<<setw(8)<<a->data.toan;
+        cout<<setw(12)<<"\nDiem van : ";
+        cout<<setw(8)<<a->data.van;
+        cout<<setw(12)<<"\nDiem anh : ";
+        cout<<setw(8)<<a->data.anh;
         cout<<"\n*****************************\n";
         a=a->pnext;
     }

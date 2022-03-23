@@ -37,10 +37,29 @@ void GiaiPTBac1 :: xuat()
         if (b==0)  cout<<"Phuong trinh "<<this->b<<" = 0 "<<" co vo so nghiem";
         else  cout<<"Phuong trinh "<<this->b<<" = 0 "<<" vo nghiem";
     }
+    else if (a==-1)
+    {
+    cout<<"Phuong trinh "<<"-x";
+    if (b<0) cout<<" - "<<abs(b);
+    else cout<<" + "<<b;
+    if (giai() == 0 || giai()== - 0) cout<<" = 0";
+    else cout<<" = "<<giai();
+    }
+    else if (a==1) 
+    {
+    cout<<"Phuong trinh "<<"x";
+    if (b<0) cout<<" - "<<abs(b);
+    else cout<<" + "<<b;
+    if (giai() == 0 || giai()== - 0) cout<<" = 0";
+    else cout<<" = "<<giai();
+    }
     else 
     {
-    if (a==1) cout<<"Phuong trinh "<<"x + "<<this->b<<" = 0 co nghiem la : x = "<<fixed<<setprecision(3)<<giai();
-    else cout<<"Phuong trinh "<<this->a<<"x + "<<this->b<<" = 0 co nghiem la : x = "<<fixed<<setprecision(3)<<giai();
+    cout<<"Phuong trinh "<<this->a<<"x";
+    if (b<0) cout<<" - "<<abs(b);
+    else cout<<" + "<<b;
+    if (giai() == 0 || giai()== - 0) cout<<" = 0";
+    else cout<<" = "<<giai();
     }
     maume();
 }

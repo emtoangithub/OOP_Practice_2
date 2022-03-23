@@ -25,7 +25,7 @@ void cuuchuong(int n)
     cout<<"Bang cuu chuong "<<n<<endl;
     for (int i = 1 ; i<=10 ; i++)
     {
-        cout<<n<<" x "<<i<<" = "<<n*i<<endl;
+        cout<<setw(2)<<n<<" x "<<setw(2)<<i<<" = "<<setw(2)<<n*i<<endl;
     }
     maume();
 }
@@ -39,16 +39,46 @@ class BangCuuChuong
     void inmn();
     void inhet();
     void inm();
+    int laym();
+    int layn();
+    void doim(int);
+    void doin(int);
+    void doimn(int, int);
 };
+void BangCuuChuong :: doimn(int m , int n)
+{
+    this->m = m;
+    this->n = n;
+}
+void BangCuuChuong :: doin(int n)
+{
+    this->n = n;
+}
+void BangCuuChuong :: doim(int m)
+{
+    this->m = m;
+}
+int BangCuuChuong :: laym()
+{
+    return this->m;
+}
+int BangCuuChuong :: layn()
+{
+    return this->n;
+}
 BangCuuChuong :: BangCuuChuong(int a, int b)
 : m(a), n(b)
 {}
 void BangCuuChuong :: nhap()
 {
+    do
+    {
+    cout<<"Hay nhap m va n ( m < n )\n";
     cout<<"m : ";
     cin>>m;
     cout<<"n : ";
     cin>>n;
+    } while ( m > n );
 }
 void BangCuuChuong :: inhet()
 {
